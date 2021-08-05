@@ -1,5 +1,6 @@
 // Compile _pb2.py with 
 // protoc -I=$SRC_DIR --csharp_out=$DST_DIR $SRC_DIR/STGProto.proto
+// e.g. protoc --csharp_out=../STG/ STGProto.proto
 // or for same folder ops just
 // protoc --csharp_out=. STGProto.proto
 
