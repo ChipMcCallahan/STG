@@ -48,6 +48,12 @@ message Element {
     map<string, int32> tags = 8; // is_forced, sliding, etc.
 }
 
+message Input {
+    Direction primary = 1;
+    Direction secondary = 2;
+    int32 action = 3;
+}
+
 enum ElemId {
     ELEMENT_UNDEFINED = 0;
 

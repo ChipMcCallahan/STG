@@ -4,28 +4,28 @@ namespace STG
 {
     class RNG
     {
-		private int seed;
+        private int seed;
 
-		// Chooses as starting seed a non-negative random Int32, 
-		// with random state derived from system clock.
-		// See https://docs.microsoft.com/en-us/dotnet/api/system.random.
-		RNG()
-		{
-			this.seed = new Random().Next();
-		}
+        // Chooses as starting seed a non-negative random Int32, 
+        // with random state derived from system clock.
+        // See https://docs.microsoft.com/en-us/dotnet/api/system.random.
+        internal RNG()
+        {
+            this.seed = new Random().Next();
+        }
 
-		RNG(int seed)
-		{
-			if (seed < 0) { throw new ArgumentException("Seed must be nonnegative."); }
-			this.seed = seed;
-		}
+        internal RNG(int seed)
+        {
+            if (seed < 0) { throw new ArgumentException("Seed must be nonnegative."); }
+            this.seed = seed;
+        }
 
-		// Do NOT rely on the low order bits of the LCG alone.
-		// See https://en.wikipedia.org/wiki/Linear_congruential_generator.
-		int Next()
-		{
-			this.seed = (this.seed * 1103515245 + 12345) & 0x7FFFFFFF;
-			return this.seed ^ this.seed >> 13 ^ this.seed >> 7; // thanks pieguy
-		}
-	}
+        // Do NOT rely on the low order bits of the LCG alone.
+        // See https://en.wikipedia.org/wiki/Linear_congruential_generator.
+        internal int Next()
+        {
+            this.seed = (this.seed * 1103515245 + 12345) & 0x7FFFFFFF;
+            return this.seed ^ this.seed >> 13 ^ this.seed >> 7; // thanks pieguy
+        }
+    }
 }
